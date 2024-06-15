@@ -29,7 +29,7 @@ export default async function Blog({ params: { id } }: Props) {
 
   return (
     <>
-      <Link href="/blog">&lt; Back</Link>
+      <Link href={"/blog"}>&lt; Back</Link>
 
       <h1 className="text-2xl font-bold mb-2">{post.title}</h1>
 

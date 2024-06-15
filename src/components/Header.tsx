@@ -1,5 +1,4 @@
 import MainMenu from "@/components/MainMenu";
-import Link from "next/link";
 
 export default function Header() {
   return (

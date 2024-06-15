@@ -1,17 +1,15 @@
 "use client";
 
+import { usePosts } from "@/store";
 import React from "react";
 
-interface Props {
-  onSearch: (search: string) => void;
-}
-
-export default function PostSearch({ onSearch }: Props): JSX.Element {
+export default function PostSearch(): JSX.Element {
   const [search, setSearch] = React.useState("");
+  const getPostsBySearch = usePosts((state) => state.getPostsBySearch);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSearch(search);
+    getPostsBySearch(search);
   };
 
   return (

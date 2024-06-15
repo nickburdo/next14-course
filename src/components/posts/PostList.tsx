@@ -1,11 +1,28 @@
-import type { Post } from "@/services/postService";
+"use client";
+import { usePosts } from "@/store";
 import Link from "next/link";
+import { useEffect } from "react";
+import { shallow } from "zustand/shallow";
 
-interface Props {
-  posts: Post[];
-}
+export default function PostList(): JSX.Element {
+  const [posts, loading, getAllPosts, getPostsBySearch] = usePosts(
+    (state) => [
+      state.posts,
+      state.loading,
+      state.getAllPosts,
+      state.getPostsBySearch,
+    ],
+    shallow,
+  );
 
-export default function PostList({ posts }: Props): JSX.Element {
+  useEffect(() => {
+    getAllPosts();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center">Loading...</div>;
+  }
+
   return (
     <ul>
       {posts.map((post) => (

@@ -1,4 +1,4 @@
-import { Post } from "@/app/blog/page";
+import type { Post } from "@/services/postService";
 import Link from "next/link";
 
 type Props = {

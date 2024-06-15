@@ -1,4 +1,4 @@
-import MainMenu from "@/components/MainMenu";
+import MainMenu from "@/components/main-layout/MainMenu";
 
 export interface MenuItem {
   id: number;
@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="bg-blue-900 text-white">
-      <div className="container my-auto p-8">
+      <div className="container mx-auto p-8">
         <MainMenu mainMenu={mainMenu} />
       </div>
     </header>

@@ -1,5 +1,5 @@
 "use client";
-import { MenuItem } from "@/components/Header";
+import { MenuItem } from "@/components/main-layout/Header";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

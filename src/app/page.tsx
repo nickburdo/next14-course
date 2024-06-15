@@ -3,5 +3,5 @@ export const metadata = {
 };
 
 export default function Home() {
-  return <h1>Hello, Next</h1>;
+  return <h1 className="text-2xl font-bold mb-2">Hello, Next</h1>;
 }

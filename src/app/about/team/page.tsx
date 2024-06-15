@@ -3,5 +3,5 @@ export const metadata = {
 };
 
 export default function Team() {
-  return <h1>Team</h1>;
+  return <h2 className="text-xl font-bold mb-2">Team</h2>;
 }

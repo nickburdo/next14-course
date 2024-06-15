@@ -3,5 +3,5 @@ export const metadata = {
 };
 
 export default function Contacts() {
-  return <h1>Contacts</h1>;
+  return <h2 className="text-xl font-bold mb-2">Contacts</h2>;
 }

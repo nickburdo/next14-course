@@ -1,5 +1,3 @@
-import { prisma } from "@/lib/prisma";
-
 export type BlogPost = {
   id: number;
   title: string;
@@ -7,6 +5,7 @@ export type BlogPost = {
   userId: number;
 };
 
+/*
 export function getPostById(id: string) {
   return prisma.post.findUnique({ where: { id } });
 }
@@ -14,6 +13,7 @@ export function getPostById(id: string) {
 export function getAllPosts() {
   return prisma.post.findMany();
 }
+*/
 
 export default class PostService {
   static async getAllPosts(): Promise<BlogPost[]> {

@@ -1,9 +1,8 @@
 import { BlogPost } from "@/services/post.service";
-import { Post } from "@prisma/client";
 import Link from "next/link";
 
 interface Props {
-  posts: Post[] | BlogPost[];
+  posts: BlogPost[];
   type?: "blog" | "client" | "zustand" | "swr";
 }
 

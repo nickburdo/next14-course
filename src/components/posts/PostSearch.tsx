@@ -1,17 +1,25 @@
 "use client";
 
-import PostService from "@/services/post.service";
+import PostService, { BlogPost } from "@/services/post.service";
 import React from "react";
 import useSWR from "swr";
 
-export default function PostSearch(): JSX.Element {
+interface Props {
+  onSearch?: (value: BlogPost[]) => void;
+}
+
+export default function PostSearch({ onSearch }: Props): JSX.Element {
   const [search, setSearch] = React.useState("");
   const { mutate } = useSWR("posts");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const posts = await PostService.getPostsBySearch(search);
-    await mutate(posts);
+
+    if (onSearch) {
+      onSearch(posts);
+    }
+    // await mutate(posts);
   };
 
   return (

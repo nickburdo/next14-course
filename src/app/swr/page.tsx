@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "SWR Post List",
+  title: "SWR BlogPost List",
 };
 
 export default function SwrPostList() {

@@ -1,8 +1,8 @@
-import PostService, { Post } from "@/services/post.service";
+import PostService, { BlogPost } from "@/services/post.service";
 import { create } from "zustand";
 
 interface UsePosts {
-  posts: Post[];
+  posts: BlogPost[];
   loading: boolean;
   getAllPosts(): Promise<void>;
   getPostsBySearch(search: string): Promise<void>;
@@ -13,7 +13,7 @@ export const usePosts = create<UsePosts>((set) => ({
   loading: false,
   getAllPosts: async () => {
     set({ loading: true });
-    const posts = await PostService.getPosts();
+    const posts = await PostService.getAllPosts();
     set({ posts: posts });
     set({ loading: false });
   },

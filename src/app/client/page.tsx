@@ -1,13 +1,9 @@
+import ClientPosts from "@/components/posts/ClientPosts";
+
 export const metadata = {
-  title: "Client Components Post List",
+  title: "Client Components BlogPost List",
 };
 
 export default function ClientPostList() {
-  return (
-    <>
-      <header className="flex items-center justify-between mb-2">
-        <h1 className="text-2xl font-bold">Blog based on Client Components</h1>
-      </header>
-    </>
-  );
+  return <ClientPosts />;
 }

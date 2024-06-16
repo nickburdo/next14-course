@@ -4,7 +4,7 @@ import { getAllPosts } from "@/services/post.service";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Blog - Post List",
+  title: "Blog - BlogPost List",
 };
 
 export const revalidate = 10;

@@ -1,25 +1,38 @@
 "use client";
 
 import PostService, { BlogPost } from "@/services/post.service";
+import { usePosts } from "@/store";
 import React from "react";
 import useSWR from "swr";
 
 interface Props {
   onSearch?: (value: BlogPost[]) => void;
+  type?: "blog" | "client" | "zustand" | "swr";
 }
 
-export default function PostSearch({ onSearch }: Props): JSX.Element {
+export default function PostSearch({
+  onSearch,
+  type = "client",
+}: Props): JSX.Element {
   const [search, setSearch] = React.useState("");
+  const getPostBySearch = usePosts((state) => state.getPostsBySearch);
   const { mutate } = useSWR("posts");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const posts = await PostService.getPostsBySearch(search);
 
-    if (onSearch) {
-      onSearch(posts);
+    switch (type) {
+      case "client":
+        onSearch && onSearch(posts);
+        break;
+      case "zustand":
+        await getPostBySearch(search);
+        break;
+      case "swr":
+        await mutate(posts);
+        break;
     }
-    // await mutate(posts);
   };
 
   return (

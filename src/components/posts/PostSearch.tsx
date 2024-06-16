@@ -1,6 +1,6 @@
 "use client";
 
-import PostService from "@/services/postService";
+import PostService from "@/services/post.service";
 import React from "react";
 import useSWR from "swr";
 

@@ -1,20 +1,27 @@
 import PostList from "@/components/posts/PostList";
 import PostSearch from "@/components/posts/PostSearch";
+import { getAllPosts } from "@/services/post.service";
+import Link from "next/link";
 
 export const metadata = {
   title: "Blog - Post List",
 };
 
+export const revalidate = 10;
+
 export default async function Blog() {
+  const posts = await getAllPosts();
   return (
     <>
       <header className="flex items-center justify-between mb-2">
-        <h1 className="text-2xl font-bold">Blog</h1>
+        <h1 className="text-2xl font-bold">Blog based on DB</h1>
 
-        <PostSearch />
+        <Link href={"/blog/create"} className="bg-blue-900 text-white p-2">
+          Create post
+        </Link>
       </header>
 
-      <PostList />
+      <PostList posts={posts} />
     </>
   );
 }

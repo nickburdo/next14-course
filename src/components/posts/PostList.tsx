@@ -1,18 +1,11 @@
-"use client";
-import PostService from "@/services/postService";
+import { Post } from "@prisma/client";
 import Link from "next/link";
-import useSWR from "swr";
 
-export default function PostList(): JSX.Element {
-  const { data: posts, isLoading: loading } = useSWR(
-    "posts",
-    PostService.getPosts,
-  );
+interface Props {
+  posts: Post[];
+}
 
-  if (loading) {
-    return <div className="text-center">Loading...</div>;
-  }
-
+export default function PostList({ posts }: Props): JSX.Element {
   return (
     <ul>
       {posts?.map((post) => (

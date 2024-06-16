@@ -1,4 +1,4 @@
-import PostService, { Post } from "@/services/postService";
+import PostService, { Post } from "@/services/post.service";
 import { create } from "zustand";
 
 interface UsePosts {

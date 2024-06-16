@@ -1,6 +1,5 @@
 import PostList from "@/components/posts/PostList";
-import PostSearch from "@/components/posts/PostSearch";
-import { getAllPosts } from "@/services/post.service";
+import { BlogPost } from "@/services/post.service";
 import Link from "next/link";
 
 export const metadata = {
@@ -10,7 +9,7 @@ export const metadata = {
 export const revalidate = 10;
 
 export default async function Blog() {
-  const posts = await getAllPosts();
+  // const posts = await getAllPosts();
   return (
     <>
       <header className="flex items-center justify-between mb-2">
@@ -21,7 +20,7 @@ export default async function Blog() {
         </Link>
       </header>
 
-      <PostList posts={posts} />
+      {/*<PostList posts={posts} />*/}
     </>
   );
 }
